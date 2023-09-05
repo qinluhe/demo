@@ -1,20 +1,49 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  important: '#body',
+  content: ['**/*.{jsx,tsx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        default: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
+
+      height: {
+        22: '5.5rem',
+      },
+      width: {
+        22: '5.5rem',
+        21: '5.25rem',
+      },
+      colors: {
+        text: {
+          DEFAULT: 'var(--color-text)',
+          'on-fill': 'var(--color-text-on-fill)',
+          icon: 'var(--color-text-icon)',
+          gray: 'var(--color-text-gray)',
+        },
+        primary: {
+          DEFAULT: 'var(--color-primary)',
+          divider: 'var(--color-primary-divider)',
+          hover: 'var(--color-primary-hover)',
+        },
+        secondary: {
+          DEFAULT: 'var(--color-secondary)',
+        },
+        bg: {
+          DEFAULT: 'var(--color-bg)',
+          hover: 'var(--color-bg-hover)',
+          footer: 'var(--color-bg-footer)',
+        },
+      },
+      boxShadow: {},
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [require('@tailwindcss/typography')],
+};
+
+export default config;
